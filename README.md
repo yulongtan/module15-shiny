@@ -7,12 +7,14 @@ Adding **interactivity** to a data report is a highly effective way of communica
 **Contents**
 
 - [Resources](#resources)
-- [Using Multiple R Files](#using-multiple-r-files)
-- [Shiny](#shiny)
-  - [Application Architecture](#application-architecture)
-  - [User Interface (ui.R)](#user-interface-uir)
-  - [Server code (server.r)](#server-code-serverr)
-- [Publishing ShinyApps](#publishing-shinyapps)
+- [Shiny Applications](#shiny-applications)
+  - [Application Structure](#application-structure)
+    - [Combining UI and Server](#combining-ui-and-server)
+  - [The UI](#the-ui)
+    - [Control Widgets and Reactive Outputs](#control-widgets-and-reactive-outputs)
+  - [The Server](#the-server)
+    - [Multiple Views](#multiple-views)
+  - [Publishing Shiny Apps](#publishing-shiny-apps)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -323,7 +325,7 @@ In order to host your app on shinyapps.io, you'll need to [create a free account
 
 After you've set up an account, you can _Run_ your application and hit the **Publish** button in the upper-right corner:
 
-![shiny publish button](imgs/publish-app.png)
+![shiny publish button](img/publish-app.png)
 
 This will put your app online, available at
 
