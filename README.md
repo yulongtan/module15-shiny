@@ -14,7 +14,7 @@ Adding **interactivity** to a data report is a highly effective way of communica
     - [Control Widgets and Reactive Outputs](#control-widgets-and-reactive-outputs)
   - [The Server](#the-server)
     - [Multiple Views](#multiple-views)
-  - [Publishing Shiny Apps](#publishing-shiny-apps)
+- [Publishing Shiny Apps](#publishing-shiny-apps)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -311,7 +311,7 @@ This lets us define a single "variable" that is a _reactive function_ that can b
 This is very powerful for allowing multiple **views** of a single piece of data: you can have a single source of data displayed both graphically and textually, both linked off of the same processed data table. Additionally, it can help keep your code more organized and readable, with avoid needing to duplicate any processing.
 
 
-### Publishing Shiny Apps
+## Publishing Shiny Apps
 Sharing a Shiny App with the world is a bit more involved than simply pushing the code to GitHub. We can't just use GitHub pages to host the code because, in addition to the HTML UI, we need an `R` interpreter session to run the Server that the UI can connect to (and GitHub does not provide R interpreters!)
 
 While there are a few different ways of "hosting" Shiny Apps, in this class we'll use the simplest one: hosting through [**shinyapps.io**](https://www.shinyapps.io). shinyapps.io is a platform for hosting and running Shiny Apps; while large applications cost money, anyone can deploy a simple app (like the ones we'll create in this class) for free!
