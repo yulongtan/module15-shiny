@@ -1,4 +1,4 @@
-# Module 14: Shiny
+# Module 15: Shiny
 
 Adding **interactivity** to a data report is a highly effective way of communication that information and enabling users to explore a data set. In this module you will learn about the **Shiny** framework for building interactive applications in R. Shiny provides a structure for communicating between a user-interface (i.e., a web-browser) and an R session, allowing users to interactively change the "code" that is run and the data that are outputted. This not only enables developers to create interactive graphics, but provides a way for users to interact directly with a R session (without writing any code!).
 
