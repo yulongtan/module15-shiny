@@ -46,10 +46,10 @@ Shiny applications are divided into two parts:
 
 1. The **User Interface (UI)** defines how the application will be _displayed_ in the browser. The UI can render R content such as text or graphics just like R Markdown, but it can also include **widgets**, which are interactive controls for your application (think buttons or sliders). The UI can also specify a **layout** for these components (e.g., so you can put widgets above, below, or beside one another).
 
-  The UI for a Shiny application is defined as a **value**, usually returned one returned from calling a **layout function**. For example:
+  The UI for a Shiny application is defined as a **value**, usually one returned from calling a **layout function**. For example:
 
   ```r
-  # The ui is the result of calling the `fluidPage()` layout functoin
+  # The ui is the result of calling the `fluidPage()` layout function
   my.ui <- fluidPage(
     # A widget: a text input box (save input in the `username` key)
     textInput('username', label="What is your name?"),
@@ -171,7 +171,7 @@ See the [documentation](http://shiny.rstudio.com/reference/shiny/latest/) and [g
 
 You can include _static_ (unchanging) content in a Shiny UI layout&mdash;this is similar to the kinds of content you would write in Markdown (rather than inline R) when using R Markdown. However, you usually don't specify this content using Markdown syntax (though it is possible to [include a markdown file](http://shiny.rstudio.com/reference/shiny/latest/include.html)'s content). Instead, you include content functions that produce HTML, the language that Markdown is converted to when you look at it in the browser. These functions include:
 
-- `p()` for creating paragraphs, the same as plain text in Markdown)
+- `p()` for creating paragraphs, the same as plain text in Markdown
 - `h1()`, `h2()`, `h3()` etc for creating headings, the same as `# Heading 1`, `## Heading 2`, `### Heading 3` in Markdown
 - `em()` for creating _emphasized_ (italic) text, the same as `_text_` in Markdown
 - `strong()` for creating **strong** (bolded) text, the same as `**text**` in Markdown
@@ -273,12 +273,13 @@ server <- function(input, output) {
   output$hist <- renderPlot({
     uniform.nums <- runif(input$num, 1, 10)  # random nums between 1 and 10
     return( hist(uniform.nums) )  # built-in plotting for simplicity
-  }),
+  })
 
-  # render a summary table
-  output$table <- renderTable({
+  # render the counts
+  output$counts <- renderPrint({
     uniform.nums <- runif(input$num, 1, 10)  # random nums between 1 and 10
-    return( summary(uniform.nums) )  # built-in summary table for simplicity
+    counts <- factor(cut(uniform.nums, breaks=1:10))  # factor
+    return( summary(counts) )  # simple vector of counts
   })
 }
 ```
@@ -297,11 +298,12 @@ server <- function(input, output) {
   # render a histogram plot
   output$hist <- renderPlot({
     return( hist(uniform.nums()) )  # call the reactive variable AS A FUNCTION
-  }),
+  })
 
-  # render a summary table
-  output$table <- renderTable({
-    return( summary(uniform.nums()) )  # call the reactive variable AS A FUNCTION
+  # render the counts
+  output$counts <- renderPrint({
+    counts <- factor(cut(uniform.nums(), breaks=1:10))  # call the reactive variable AS A FUNCTION
+    return( summary(counts) )
   })
 }
 ```
